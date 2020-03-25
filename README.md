@@ -26,7 +26,7 @@ If you want to generate more than 1 trajectory per file, you can add this as the
 generate_trajectory_file(1.0, "test.csv", 3)
 ```
 
-To test on your system, include the `run.jl` script. It should generate a file that matches the "sample_hd_traj.csv" file.
+The first column of the resulting CSV file will be the time in seconds and the following three columns will be the x-, y-, and z-position respectively in feet. To test on your system, include the `run_hd.jl` script. It should generate a file that matches the "sample_hd_traj.csv" file.
 
 ## Key Functions
 `generate_HD(initBN::BayesNet, tranBN::BayesNet)` - function that interfaces with the original hobby drone code to generate a trajectory. The keyword arguments allow for setting things like initial evidence, time step, maximum time, and initial time.
