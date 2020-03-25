@@ -41,7 +41,6 @@ The first column of the resulting CSV file will be the time in seconds and the f
 `iBN_data.jld2` - contains the initial network for the dynamic Bayesian network model
 
 `tBN_data.jld2` - contains the transition network for the dynamic Bayesian network model
-<<<<<<< HEAD
 
 `run_hd.jl` - sample script for generating hobby drone trajectory files
 
