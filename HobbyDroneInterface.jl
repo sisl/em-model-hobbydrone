@@ -5,6 +5,7 @@ using DataFrames
 using CSV
 using JLD2
 using LightGraphs
+using Random
 
 include("CreateHobbyDroneTrajectories.jl")
 
@@ -68,5 +69,22 @@ function generate_trajectory_file(dt::Float64, filename::String; tMax=120.0)
 	p = convert_to_position(stHistory)
 	times = collect(range(0, step = dt, length = length(p[:,1])))
 	df = DataFrame(time_s = times, x_ft = p[:,1], y_ft = p[:,2], z_ft = p[:,3])
+	CSV.write(filename, df)
+end
+
+function generate_trajectory_file(dt::Float64, filename::String, num_trajs::Int64; tMax=120.0)
+	xs = []
+	ys = []
+	zs = []
+	times = []
+	for i = 1:num_trajs
+		stHistory = generate_HD(iBN, tBN, dt=dt, tMax=tMax)
+		p = convert_to_position(stHistory)
+		times = [times; collect(range(0, step = dt, length = length(p[:,1])))]
+		xs = [xs; p[:,1]]
+		ys = [ys; p[:,2]]
+		zs = [zs; p[:,3]]
+	end
+	df = DataFrame(time_s = times, x_ft = xs, y_ft = ys, z_ft = zs)
 	CSV.write(filename, df)
 end

@@ -20,6 +20,14 @@ The default trajectory time length is 120 seconds. Use the `tMax` variable to ge
 generate_trajectory_file(1.0, "test.csv", tMax=100.0)
 ```
 
+If you want to generate more than 1 trajectory per file, you can add this as the last required argument. The following line will generate a file called "test.csv" with 3 trajectories.
+
+```
+generate_trajectory_file(1.0, "test.csv", 3)
+```
+
+To test on your system, include the `run.jl` script. It should generate a file that matches the "sample_hd_traj.csv" file.
+
 ## Key Functions
 `generate_HD(initBN::BayesNet, tranBN::BayesNet)` - function that interfaces with the original hobby drone code to generate a trajectory. The keyword arguments allow for setting things like initial evidence, time step, maximum time, and initial time.
 
@@ -33,3 +41,7 @@ generate_trajectory_file(1.0, "test.csv", tMax=100.0)
 `iBN_data.jld2` - contains the initial network for the dynamic Bayesian network model
 
 `tBN_data.jld2` - contains the transition network for the dynamic Bayesian network model
+
+`run_hd.jl` - sample script for generating hobby drone trajectory files
+
+`sample_hd_traj.csv` - sample model output for one hobby drone trajectory of length 120 seconds
