@@ -10,7 +10,7 @@ This code was developed on Julia1.1.
 Ensure that the following packages are installed in your current version of Julia: `BayesNets`, `LightGraphs`, `DataFrames`, `CSV`, and `JLD2`. To install any of these packages that have not yet been installed, simply run:
 
 ```julia
-include("startup.jl")
+include("setup.jl")
 ```
 
 The following lines will generate a trajectory file titled "test.csv" with data for a hobby drone trajectory with a time step of 1 second. 
