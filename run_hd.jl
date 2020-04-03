@@ -5,4 +5,4 @@ include("HobbyDroneInterface.jl")
 # Set the random seed
 Random.seed!(1)
 # Generate the trajectory file
-generate_trajectory_file(1.0, "sample_hd_traj.csv")
+generate_trajectory_file(1.0, "output/hd_traj.csv")
